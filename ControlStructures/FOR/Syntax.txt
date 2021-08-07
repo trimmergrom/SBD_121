@@ -1,0 +1,21 @@
+int i=0;
+for(Start; Stop; Step)
+{
+	...;
+	group-of-statements;
+	...;
+}
+
+for(Counter; Condition; Expression++/--)
+{
+	...;
+	group-of-statements;
+	...;
+}
+
+for(int i=0; i<n; i++)
+{
+	...
+	...
+	...
+}
