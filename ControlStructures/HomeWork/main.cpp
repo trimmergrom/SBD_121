@@ -1,69 +1,150 @@
-//3Dshooter
+//ДЗ_4
 #include<iostream>
 #include<conio.h>
 using namespace std;
 #define OFFSET "\t\t\t\t"
-void main()
+int main()
 {
 	setlocale(LC_ALL, "Russian");
-	char key; //Будет хранить код клавиши
-	cout << OFFSET << "=============+++==============================================\n\n";
-	cout << OFFSET << "     ПРОГРАММА 3Dschooter (Милькин Сергей, группа СБД121)\n\n";
-	cout << OFFSET << "==============================================================\n\n\n";
-	cout << "\t" << "У меня Windows стоит на MacBook, поэтому клавиши и их коды для русской раскладки могут не совпадать с Вашими\n";
-	cout << "\t\t\t\t\t" << "  Для выхода из программы нажмите Esc\n\n";
+	char key; //Код клавиши
+	int otvet; // пункт меню
+	cout << OFFSET << "======================================================\n\n";
+	cout << OFFSET << "Домашнее задание № 4 (Милькин Сергей, группа СБД121)\n\n";
+	cout << OFFSET << "======================================================\n\n\n";
+	cout << "\t\t\t\t\t" << "   Выберите пункт меню и нажмите Enter\n";
+	cout << "\t\t\t\t\t" << "   Для выхода из программы нажмите Esc\n\n";
+
 	do
 	{
-		key = _getch();
+		cout << OFFSET << "======================================================\n\n";
+		cout << OFFSET << "1.    Вычислить факториал\n\n";
+		cout << OFFSET << "2.    Возвести число в степень\n\n";
+		cout << OFFSET << "3.    Вывести ASCII-таблицу\n\n";
+		cout << OFFSET << "4.    Вывести таблицу умножения\n\n";
+		cout << OFFSET << "5.    Вывести таблицу Пифагора\n\n";
+		cout << OFFSET << "Esc.  Выход\n\n";
 
-		switch (key)
-		{
-		case 'w':
-			cout << key << " - Игрок сделал шаг вперед\t" << endl;
-			break;
-
-		case 'ж':
-			cout << key << " - Игрок сделал шаг вперед (на русской раскладке)\t" << endl;
-			break;
-		case 's':
-			cout << key << " - Игрок сделал шаг назад \t" << endl;
-			break;
-
-		case 'л':
-			cout << key << " - Игрок сделал шаг назад (на русской раскладке)\t" << endl;
-			break;
-		case 'a':
-			cout << key << " - Игрок сделал шаг влево\t" << endl;
-			break;
-
-		case 'д':
-			cout << key << " - Игрок сделал шаг влево (на русской раскладке)\t" << endl;
-			break;
-
-		case 'd':
-			cout << key << " - Игрок сделал шаг вправо\t" << endl;
-			break;
-
-		default:
-			if (key != 32)
+		cout << OFFSET << "======================================================\n\n\n";
+		// Первая задача - Факториал
+		otvet = _getch() - 48;
+		if (otvet == 1) {
+			if (otvet == 27 - 48)
 			{
-				if (key != 13)
+				cout << "Выход" << endl;
+				break;
+			}
+			{
+				cout << OFFSET << "======================================================\n\n";
+				cout << OFFSET << "                 ФАКТОРИАЛ ЧИСЛА\n\n";
+				cout << OFFSET << "======================================================\n\n\n";
+				cout << "\t\t\t\t\t" << "   Ведите число и нажмите Enter\n";
+				double factor = 1;
+				int chislo, i;
+				cin >> chislo;
+				for (i = 1; i <= chislo; i++) {
+					factor *= i;
+				}
+				cout << "\t\t\t\t\t" << " Факториал числа  " << chislo << "!  = " << factor << "\n";
+			}
+		}
+		// Вторая задача - Степень числа
+		if (otvet == 2) {
+			if (otvet == 27 - 48)
+			{
+				cout << "Выход" << endl;
+				break;
+			}
+			{
+				cout << OFFSET << "======================================================\n\n";
+				cout << OFFSET << "                 СТЕПЕНЬ ЧИСЛА \n\n";
+				cout << OFFSET << "======================================================\n\n\n";
+				cout << "\t\t\t\t\t" << "       Ведите число и нажмите Enter\n";
+				cout << "\t\t\t\t\t" << "   Ведите степень числа и нажмите Enter\n";
+				double chislo;
+				int stepen, i;
+				cin >> chislo >> stepen;
+				double result = chislo;
+				if (stepen == 0) {
+					cout << "\t\t\t\t\t" << "Любое число в степени 0 равняется единице\n";
+				}
+				else
 				{
-					if (key != -94)
-						cout << key << " - у игрока истерика : жмёт все подряд\t" << endl;
-					else
-						cout << key << " - Игрок сделал шаг вправо (на русской раскладке)\t" << endl;
+
+					for (i = 1; i < stepen; i++) {
+						chislo *= result;
+					}
+					cout << "\t\t\t\t\t\t" << result << " ^ " << stepen << " = " << chislo << "\n";
+
+				}
+			}
+		}
+		// Третья задача - ASCII - таблица
+		if (otvet == 3) {
+			if (otvet == 27 - 48)
+			{
+				cout << "Выход" << endl;
+				break;
+			}
+			{
+				cout << OFFSET << "======================================================\n\n";
+				cout << OFFSET << "                 Таблица ASCII \n\n";
+				cout << OFFSET << "======================================================\n\n\n";
+				cout << "\t\t\t\t\t" << "       Просто нажмите Enter\n";
+				char key;
+				int i;
+				for (i = 1; i < 256; i++)
+				{
+					key = i;
+					cout << key << "\t";
+				}
+			}
+		}
+		// Четвертая задача - таблица умножения
+		if (otvet == 4) {
+			if (otvet == 27 - 48)
+			{
+				cout << "Выход" << endl;
+				break;
+			}
+			{
+				cout << OFFSET << "======================================================\n\n";
+				cout << OFFSET << "                 Таблица УМНОЖЕНИЯ \n\n";
+				cout << OFFSET << "======================================================\n\n\n";
+				int i, j;
+				for (i = 2; i <= 9; i++)
+				{
+					for (j = 1; j <= 9; j++)
+					{
+						cout << i << " * " << j << " = " << i * j << " " << " \t" << endl;
+					}
+					cout << endl;
 				}
 
-				else
-					cout << "Enter - Игрок выстрелил\t" << endl;
 			}
-			else
-				cout << "Пробел - Игрок прыгнул\t" << endl;
-
 		}
-
-
+		// Пятая задача - Таблица Пифагора
+		if (otvet == 5) {
+			if (otvet == 27 - 48)
+			{
+				cout << "Выход" << endl;
+				break;
+			}
+			{
+				cout << OFFSET << "======================================================\n\n";
+				cout << OFFSET << "                 Таблица ПИФАГОРА \n\n";
+				cout << OFFSET << "======================================================\n\n\n";
+				int i, j;
+				for (i = 1; i <= 9; i++)
+					cout << "     " << i << "\t";
+				cout << endl;
+				for (i = 2; i <= 9; i++)
+				{
+					for (j = 1; j <= 9; j++)
+						cout << "     " << i * j << "\t";
+					cout << endl;
+				}
+			}
+		}
+		key = _getch();
 	} while (key != 27);
 }
-

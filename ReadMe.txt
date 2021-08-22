@@ -7,6 +7,11 @@ https://www.softelectro.ru/ieee754.html
 https://github.com/okovtun/BV_011/blob/master/DataTypes.pdf
 
 TODO:
+1. https://github.com/okovtun/BV_011/blob/master/ControlStructures/Geometria/Task/Geometria1.txt;
+2. https://github.com/okovtun/BV_011/blob/master/ControlStructures/Geometria/Task/ChessBoard.jpg;
+3. https://github.com/okovtun/BV_011/blob/master/ControlStructures/Geometria/Task/HardChess.jpg;
+
+DONE:
 1. Написать программу, которая вычисляет факториал числа, введенного с клавиатуры;
 2. Написать программу, которая возводит указанное число в указанную степень. 
    Функцию pow() использовать запрещено;
