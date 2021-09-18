@@ -1,150 +1,72 @@
-//ДЗ_4
-#include<iostream>
-#include<conio.h>
+п»ї#include<iostream>
 using namespace std;
-#define OFFSET "\t\t\t\t"
-int main()
+
+//#define ASCII
+//#define TERNARY
+
+#define UPPER_LEFT_ANGLE	(char)218
+#define UPPER_RIGHT_ANGLE	(char)191
+#define LOWER_LEFT_ANGLE		(char)192
+#define LOWER_RIGHT_ANGLE	(char)217
+#define VERT_LINE			(char)179
+#define HORIZ_LINE			"\xC4\xC4"//(char)196
+#define WHITE_BOX			"\xDB\xDB"//(char)219
+#define BLACK_BOX			"  "
+
+void main()
 {
 	setlocale(LC_ALL, "Russian");
-	char key; //Код клавиши
-	int otvet; // пункт меню
-	cout << OFFSET << "======================================================\n\n";
-	cout << OFFSET << "Домашнее задание № 4 (Милькин Сергей, группа СБД121)\n\n";
-	cout << OFFSET << "======================================================\n\n\n";
-	cout << "\t\t\t\t\t" << "   Выберите пункт меню и нажмите Enter\n";
-	cout << "\t\t\t\t\t" << "   Для выхода из программы нажмите Esc\n\n";
-
-	do
+#ifdef ASCII
+	cout << "ASCII-С‚Р°Р±Р»РёС†Р°\n";
+	setlocale(LC_ALL, "C");
+	for (int i = 0; i < 256; i++)
 	{
-		cout << OFFSET << "======================================================\n\n";
-		cout << OFFSET << "1.    Вычислить факториал\n\n";
-		cout << OFFSET << "2.    Возвести число в степень\n\n";
-		cout << OFFSET << "3.    Вывести ASCII-таблицу\n\n";
-		cout << OFFSET << "4.    Вывести таблицу умножения\n\n";
-		cout << OFFSET << "5.    Вывести таблицу Пифагора\n\n";
-		cout << OFFSET << "Esc.  Выход\n\n";
+		//char i; //РѕР±СЉСЏРІР»РµРЅРёРµ
+		//(char)i;//РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ
+		if (i % 16 == 0)cout << endl;
+		cout << (char)i << " ";//(char)i - СЏРІРЅРѕРµ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ СЃС‡РµС‚С‡РёРєР° 'i' РІ С‚РёРї РґР°РЅРЅС‹С… char
+	}
+#endif // ASCII
 
-		cout << OFFSET << "======================================================\n\n\n";
-		// Первая задача - Факториал
-		otvet = _getch() - 48;
-		if (otvet == 1) {
-			if (otvet == 27 - 48)
-			{
-				cout << "Выход" << endl;
-				break;
-			}
-			{
-				cout << OFFSET << "======================================================\n\n";
-				cout << OFFSET << "                 ФАКТОРИАЛ ЧИСЛА\n\n";
-				cout << OFFSET << "======================================================\n\n\n";
-				cout << "\t\t\t\t\t" << "   Ведите число и нажмите Enter\n";
-				double factor = 1;
-				int chislo, i;
-				cin >> chislo;
-				for (i = 1; i <= chislo; i++) {
-					factor *= i;
-				}
-				cout << "\t\t\t\t\t" << " Факториал числа  " << chislo << "!  = " << factor << "\n";
-			}
-		}
-		// Вторая задача - Степень числа
-		if (otvet == 2) {
-			if (otvet == 27 - 48)
-			{
-				cout << "Выход" << endl;
-				break;
-			}
-			{
-				cout << OFFSET << "======================================================\n\n";
-				cout << OFFSET << "                 СТЕПЕНЬ ЧИСЛА \n\n";
-				cout << OFFSET << "======================================================\n\n\n";
-				cout << "\t\t\t\t\t" << "       Ведите число и нажмите Enter\n";
-				cout << "\t\t\t\t\t" << "   Ведите степень числа и нажмите Enter\n";
-				double chislo;
-				int stepen, i;
-				cin >> chislo >> stepen;
-				double result = chislo;
-				if (stepen == 0) {
-					cout << "\t\t\t\t\t" << "Любое число в степени 0 равняется единице\n";
-				}
-				else
-				{
+	//for (int i = 0; i < 256; i++)cout << i << "\t" << (char)i << endl;
 
-					for (i = 1; i < stepen; i++) {
-						chislo *= result;
-					}
-					cout << "\t\t\t\t\t\t" << result << " ^ " << stepen << " = " << chislo << "\n";
+	int n;
+	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РґРѕСЃРєРё: "; cin >> n;
 
-				}
-			}
+#ifdef TERNARY
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			//cout << "* ";
+			//if (j % 2 == i % 2)cout << "+ ";
+			//if ((i + j) % 2 == 0)cout << "+ ";else cout << "- ";
+			//(i + j) % 2 == 0 ? cout << "+ " : cout << "- ";
+			cout << ((i + j) % 2 == 0 ? "+ " : "- ");
 		}
-		// Третья задача - ASCII - таблица
-		if (otvet == 3) {
-			if (otvet == 27 - 48)
-			{
-				cout << "Выход" << endl;
-				break;
-			}
-			{
-				cout << OFFSET << "======================================================\n\n";
-				cout << OFFSET << "                 Таблица ASCII \n\n";
-				cout << OFFSET << "======================================================\n\n\n";
-				cout << "\t\t\t\t\t" << "       Просто нажмите Enter\n";
-				char key;
-				int i;
-				for (i = 1; i < 256; i++)
-				{
-					key = i;
-					cout << key << "\t";
-				}
-			}
-		}
-		// Четвертая задача - таблица умножения
-		if (otvet == 4) {
-			if (otvet == 27 - 48)
-			{
-				cout << "Выход" << endl;
-				break;
-			}
-			{
-				cout << OFFSET << "======================================================\n\n";
-				cout << OFFSET << "                 Таблица УМНОЖЕНИЯ \n\n";
-				cout << OFFSET << "======================================================\n\n\n";
-				int i, j;
-				for (i = 2; i <= 9; i++)
-				{
-					for (j = 1; j <= 9; j++)
-					{
-						cout << i << " * " << j << " = " << i * j << " " << " \t" << endl;
-					}
-					cout << endl;
-				}
+		cout << endl;
+	}
+	true;
+#endif // TERNARY
 
-			}
+
+	setlocale(LC_ALL, "C");
+	n++;
+	for (int i = 0; i <= n; i++)
+	{
+		for (int j = 0; j <= n; j++)
+		{
+			if (i == 0 && j == 0)cout << UPPER_LEFT_ANGLE;
+			else if (i == 0 && j == n)cout << UPPER_RIGHT_ANGLE;
+			else if (i == n && j == 0)cout << LOWER_LEFT_ANGLE;
+			else if (i == n && j == n)cout << LOWER_RIGHT_ANGLE;
+			else if (i == 0 || i == n)cout << HORIZ_LINE;
+			else if (j == 0 || j == n)cout << VERT_LINE;
+			else cout << ((i + j) % 2 == 0 ? WHITE_BOX : BLACK_BOX);
+				//(i + j) % 2 == 0 ? cout << WHITE_BOX : cout << "  ";
 		}
-		// Пятая задача - Таблица Пифагора
-		if (otvet == 5) {
-			if (otvet == 27 - 48)
-			{
-				cout << "Выход" << endl;
-				break;
-			}
-			{
-				cout << OFFSET << "======================================================\n\n";
-				cout << OFFSET << "                 Таблица ПИФАГОРА \n\n";
-				cout << OFFSET << "======================================================\n\n\n";
-				int i, j;
-				for (i = 1; i <= 9; i++)
-					cout << "     " << i << "\t";
-				cout << endl;
-				for (i = 2; i <= 9; i++)
-				{
-					for (j = 1; j <= 9; j++)
-						cout << "     " << i * j << "\t";
-					cout << endl;
-				}
-			}
-		}
-		key = _getch();
-	} while (key != 27);
+		cout << endl;
+	}
+	setlocale(LC_ALL, "Russian");
+	cout << "Р’РѕС‚ Рё СЃРєР°Р·РѕС‡РєРµ РєРѕРЅРµС† :-)" << endl;
 }
