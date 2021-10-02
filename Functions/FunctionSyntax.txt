@@ -1,0 +1,13 @@
+type name(parameters)	//заголовок функции - function header
+{
+	//Тело функции:
+	....
+	group-of-statements;
+	....
+}
+type - 
+void - Пустота
+return value; //NOT void function	
+return;	//void function
+
+name - имя функции.
